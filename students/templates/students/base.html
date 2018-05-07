@@ -12,13 +12,13 @@
 	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
-	<body style="height: 1500px;">
-		<div class="container" style="height: 130px; margin-top: -28px;">
-		    <div class="row">
+	<body style="height: 1500px;" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+				<div class="container" style="height: 130px; margin-top: -28px;">
+		    	<div class="row">
               <div class="col-sm-4 left-header"><img style="" src="{% static 'images/logo.jpg' %}"></img></div>
               <div class="col-sm-8 right-header"><br><br><b><h1 style=" text-align: right;" >School <b style="color: #0066ff;">Name</b></b></h1></div>
               <!--<img style="width: 100%; height: 100%; text-align: right;" src="{% static 'images/right-header.png' %}"></img>-->
-            </div>
+           </div>
         </div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" style="border-bottom: 1px solid #0066ff;">
         <div class="container">
@@ -34,15 +34,13 @@
           </ul>
         </div>
         </nav>
-        </div>
-        <div class="container"><br>
-		{% block content %}
-
-		{% endblock %}
-		<br>
-		<br>
-		<div>
-			<nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-bottom" style=" margin-bottom: 0px;">
+				{% block content %}
+		
+				{% endblock %}
+				<br>
+				<br>
+				<div>
+				<nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-bottom" style=" margin-bottom: 0px;">
 				<div class="container">
 					<p style="margin: auto; color: white;">&copy;2018 All right reserve</p>
 				</div>
