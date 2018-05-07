@@ -1,0 +1,14 @@
+body{
+	background-color: green;
+}
+ul{
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.sub-form-input {
+	float: left;
+	width: 40%;
+	display: block;
+}
