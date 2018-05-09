@@ -16,4 +16,6 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/detail/experience/$', views.experience, name='experience'),
     url(r'^(?P<pk>[0-9]+)/detail/family/$', views.family, name='family'),
     url(r'^(?P<pk>[0-9]+)/detail/fujiyama/$', views.fujiyama, name='fujiyama'),
+    url(r'^(?P<pk>[0-9]+)/edit/$', views.edit_student, name='edit_student'),
+    url(r'^(?P<pk>[0-9]+)/edit/interview/$', views.edit_interview, name='edit_interview'),
 ]

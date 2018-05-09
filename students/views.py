@@ -128,3 +128,35 @@ def new_fujiyama(request):
         formFu = FamilyForm()
         context = { 'formFu' : formFu }
         return render(request, 'students/new_fujiyama.html', context)
+        
+# EDIT PAGE ====================================================================
+def edit_student(request, pk=None):
+    student = get_object_or_404(Student,pk=pk)
+    if request.method == "POST":
+        formS = StudentForm(request.POST, instance=student)
+        context = { 'formS': formS }
+        if formS.is_valid():
+            formS = formS.save()
+            return HttpResponseRedirect(reverse('students:index'))
+        else:
+            return render(request, 'students/edit_student.html', context)
+    else:
+        formS = StudentForm(instance=student)
+        context = { 'formS' : formS }
+        return render(request, 'students/edit_student.html', context)
+    
+def edit_interview(request, pk=None):
+    student = get_object_or_404(Student,pk=pk)
+    if request.method == "POST":
+        formI = InterviewForm(request.POST, instance=student)
+        context = { 'formI': formI }
+        if formI.is_valid():
+            formI = formI.save()
+            return HttpResponseRedirect(reverse('students:index'))
+        else:
+            return render(request, 'students/edit_interview.html', context)
+    else:
+        
+        formI = InterviewForm(instance=student)
+        context = { 'formI' : formI }
+        return render(request, 'students/edit_interview.html', context)
