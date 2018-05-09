@@ -2,9 +2,6 @@ body{
 	background-color: green;
 	position: relative;
 }
-.sub-form-input {
-	float: left;
-	width: 40%;
-	display: block;
+.row-st {
+	text-align: center;
 }
-     

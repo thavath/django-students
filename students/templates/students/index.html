@@ -1,8 +1,47 @@
 {% extends 'students/base.html' %}
 
 {% block content %}
-<div class="container">
-    <h2>Hello Welcome to Django 1.9 .</h2>
-    <h2>Hello Welcome to Django 2.0 .</h2>
-</div>
+				<div class="container">
+					<div>
+					<br>
+					<h2><i style="color: #0066ff;">Students list</i></h2>
+				    <br>
+				    <table class="table table-hover table-sm table-striped table-responsive-sm " style="text-align: center;">
+				    	<thead class="bg-primary" style="color: white; height: 30px;">
+				    		<tr>
+				    			<th>ID</th>
+				    			<th>Name</th>
+				    			<th>Gender</th>
+				    			<th>Age</th>
+				    			<th>Hometown</th>
+				    			<th>Sending Company</th>
+				    			<th>Start Date</th>
+				    			<th>Japanese</th>
+				    			<th>Contact</th>
+				    			<th>Detail</th>
+				    		</tr>
+				    	</thead >
+				    	<tbody class="table-hover">
+				    	{% if students %}
+				    	{% for student in students %}
+				    		<tr class=" table-xm table-hover" >
+				    			<td>{{ student.id }}</td>
+				    			<td><strong><a href="{% url 'students:detail' student.id %}">{{ student.english_name }}</a></strong></td>
+				    			<td>{{ student.gender }}</td>
+				    			<td>{{ student.age }}</td>
+				    			<td>{{ student.place_of_birth }}</td>
+				    			<td>{{ student.sending_company }}</td>
+				    			<td>{{ student.start_date }}</td>
+				    			<td>{{ student.japanese_level }}</td>
+				    			<td>{{ student.phone_number }}</td>
+				    			<td><a class="btn btn-sm btn-primary"  href="{% url 'students:detail' student.id %}">detail</a></td>
+				    		</tr>
+				    	{% endfor %}
+						{% else %}
+						    <p>No student are available.</p>
+						{% endif %}
+				    	</tbody>
+				    </table>
+					</div>
+				</div>
 {% endblock %}
