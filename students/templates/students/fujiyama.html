@@ -1,0 +1,52 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+<br><br>
+   <div class="container">
+      {% if student %}
+         {% if fujiyamas %}
+            <h2 style="color: #0066ff;"><u>Fujiyama Program</u></h2>
+            <h3 style="text-align: center; "><b style="color: #0066ff;">{{ student.english_name }}</b></h2><br>
+            <h4><a href="{% url 'students:new_interview' %}">New Fujiyama Program</a></h4><br>
+               <table class="table table-hover table-sm table-striped table-responsive-sm " style="text-align: center;">
+                  <thead class="bg-success" style="color: white; height: 30px;">
+                     <tr>
+                        <th>Entry Date</th>
+                        <th>Score</th>
+                        <th>Player</th>  
+                        <th>Correct Answer</th>
+                        <th>Incorrect Answer</th>  
+                        <th>Duration</th>  
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Login Source</th>
+                        <th>Status</th>
+                     </tr>
+                  </thead>
+                  <tbody class=" table-sm table-hover" >
+                     {% for fujiyama in fujiyamas %}
+                     <tr class=" table-sm table-hover" >
+                        <td>{{ fujiyama.entry_date }}</td>
+                        <td>{{ fujiyama.score }}</td>
+                        <td>{{ fujiyama.player_learn_detail }}</td>
+                        <td>{{ fujiyama.correct_answer }}</td>
+                        <td>{{ fujiyama.incorrect_answer }}</td>
+                        <td>{{ fujiyama.duration }}</td>
+                        <td>{{ fujiyama.email }}</td>
+                        <td>{{ fujiyama.phone_number }}</td>
+                        <td>{{ fujiyama.login_source }}</td>
+                        <td>{{ fujiyama.status }}</td>
+                     </tr>
+                     {% endfor %}
+                  </tbody>
+               </table>
+               <br>
+               <a href="{% url 'students:index' %}">Students list</a> 
+         {% else %}
+                <p>No Experience are available.</p>
+         {% endif %}
+      {% else %}
+          <p>No Student are available.</p>
+      {% endif %}
+      </div>
+{% endblock %}

@@ -35,7 +35,15 @@
         <div>
         <br>
         <a href="{% url 'students:attendance' student.id %}">Check Attendance |</a>
-        <a href="{% url 'students:new_attendance' %}">New attendance |</a>
+        <a href="{% url 'students:new_attendance' %}">New attendance </a><br>
+        <a href="{% url 'students:interview' student.id %}">Check Interview |</a>
+        <a href="{% url 'students:new_interview' %}">New Interview </a><br>
+        <a href="{% url 'students:experience' student.id %}">Check Experience |</a>
+        <a href="{% url 'students:new_experience' %}">New Experience </a><br>
+        <a href="{% url 'students:family' student.id %}">Check Family |</a>
+        <a href="{% url 'students:new_family' %}">New Family Member</a><br>
+        <a href="{% url 'students:fujiyama' student.id %}">Check Fujiyama Program |</a>
+        <a href="{% url 'students:new_fujiyama' %}">New Fujiyama</a><br>
         <p><a href="{% url 'students:index' %}">Students list</a></p> 
         </div>
     {% endif %}

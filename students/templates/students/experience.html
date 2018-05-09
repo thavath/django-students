@@ -1,0 +1,38 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+<br><br>
+   <div class="container">
+      {% if student %}
+         {% if experiences %}
+            <h2 style="color: #0066ff;"><u>Experience</u></h2>
+            <h3 style="text-align: center; "><b style="color: #0066ff;">{{ student.english_name }}</b></h2><br>
+            <h4><a href="{% url 'students:new_interview' %}">New Experience</a></h4><br>
+               <table class="table table-hover table-sm table-striped table-responsive-sm " style="text-align: center;">
+                  <thead class="bg-success" style="color: white; height: 30px;">
+                     <tr>
+                        <th>Last Peroid of Working</th>
+                        <th>Position</th>
+                        <th>Company Name</th>  
+                     </tr>
+                  </thead>
+                  <tbody class=" table-sm table-hover" >
+                     {% for experience in experiences %}
+                     <tr class=" table-sm table-hover" >
+                        <td>{{ experience.last_peroid_of_working }}</td>
+                        <td>{{ experience.position }}</td>
+                        <td>{{ experience.company_name }}</td>
+                     </tr>
+                     {% endfor %}
+                  </tbody>
+               </table>
+               <br>
+               <a href="{% url 'students:index' %}">Students list</a> 
+         {% else %}
+                <p>No Experience are available.</p>
+         {% endif %}
+      {% else %}
+          <p>No Student are available.</p>
+      {% endif %}
+      </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+<br><br>
+   <div class="container">
+      {% if student %}
+         {% if interviews %}
+            <h2 style="color: #0066ff;"><u>Interviews</u></h2>
+            <h3 style="text-align: center; "><b style="color: #0066ff;">{{ student.english_name }}</b></h2><br>
+            <h4><a href="{% url 'students:new_interview' %}">New Interview</a></h4><br>
+               <table class="table table-hover table-sm table-striped table-responsive-sm " style="text-align: center;">
+                  <thead class="bg-success" style="color: white; height: 30px;">
+                     <tr>
+                        <th>Interview Date</th>
+                        <th>Interview Type</th>
+                        <th>Company Name</th>  
+                        <th>Status</th>
+                        <th>Job History</th>
+                        <th>Cerificate</th>
+                     </tr>
+                  </thead>
+                  
+                  <tbody class=" table-sm table-hover" >
+                     {% for interview in interviews %}
+                     <tr class=" table-sm table-hover" >
+                        <td>{{ interview.interview_date }}</td>
+                        <td>{{ interview.interview_type }}</td>
+                        <td>{{ interview.company_name }}</td>
+                        <td>{{ interview.status }}</td>
+                        <td>{{ interview.job_history }}</td>
+                        <td>{{ interview.certificate }}</td>
+                     </tr>
+                     {% endfor %}
+                  </tbody>
+               </table>
+               <br>
+               <a href="{% url 'students:index' %}">Students list</a> 
+         {% else %}
+                <p>No Interview are available.</p>
+         {% endif %}
+      {% else %}
+          <p>No Student are available.</p>
+      {% endif %}
+      </div>
+{% endblock %}
