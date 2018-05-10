@@ -7,6 +7,8 @@
     <br>
     {% if student %}
         <h3 class="text-primary"><u>Student Information Detail</u></h3><br>
+        <a href="{% url 'students:edit_student' student.id %}">Update Student |</a>
+        <br>
         <div class="row bg-success text-white">
           <br>
           <div class="col"><p><br>English Name : "{{ student.english_name }}"</p></div>
